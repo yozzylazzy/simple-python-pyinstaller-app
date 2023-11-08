@@ -4,6 +4,7 @@ pipeline {
       image 'python:2-alpine'
       image 'qnib/pytest'
       image 'cdrx/pyinstaller-linux:python2'
+      args '-p 2400:2400'
     }
   }
   stages{
