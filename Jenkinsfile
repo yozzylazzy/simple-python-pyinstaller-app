@@ -1,9 +1,9 @@
 pipeline {
   agent{
     docker{
-      image 'python:3.7.2'
+      image 'python:2-alpine'
       image 'qnib/pytest'
-      image 'cdrx/pyinstaller-linux:python3'
+      image 'cdrx/pyinstaller-linux:python2'
     }
   }
   stages{
