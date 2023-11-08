@@ -1,10 +1,11 @@
 pipeline {
     agent none
+    args '-p 2400:2400'
     stages {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:2-buster-slim'
+                    image 'python:2-alpine'
                 }
             }
             steps {
