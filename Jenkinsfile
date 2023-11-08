@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy') {
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-windows'
+                    image 'cdrx/pyinstaller-windows:python2'
                 }
             }
             steps {
