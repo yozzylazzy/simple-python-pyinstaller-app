@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:2'
+                    image 'python:2-buster-slim'
                 }
             }
             steps {
