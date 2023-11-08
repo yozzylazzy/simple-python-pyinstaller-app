@@ -1,6 +1,5 @@
 pipeline {
     agent none
-    args '-p 2400:2400'
     stages {
         stage('Build') {
             agent {
