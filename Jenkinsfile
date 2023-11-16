@@ -45,6 +45,8 @@ pipeline {
                 )
                 if (input.equals('Reject')) {
                     error('Deployment Rejected')
+                } else {
+                    echo("Commit Approved")
                 }
            } 
         }
