@@ -43,6 +43,9 @@ pipeline {
                         ),
                     ],
                 )
+                if(input.equals('Reject')) {
+                    error('Deployment Rejected')
+                }
            } 
         }
         stage('Deploy') {
