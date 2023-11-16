@@ -30,6 +30,12 @@ pipeline {
                 }
             }
         }
+        stage('Manual Approval Deploy'){
+           steps{
+              checkout scm
+              input message: 'Lanjutkan ke Tahap Deployment?', ok: 'Lanjutkan'
+           } 
+        }
         stage('Deliver') {
             agent any
             environment {
