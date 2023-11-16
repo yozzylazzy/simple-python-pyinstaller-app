@@ -32,11 +32,22 @@ pipeline {
         }
         stage('Manual Approval Deploy'){
            steps{
-              checkout scm
-              input message: 'Lanjutkan ke Tahap Deployment?', ok: 'Lanjutkan'
+             input(
+                    id: 'deploymentApproval',
+                    message: 'Please provide your approval:',
+                    submitter: 'Approver',
+                    parameters: [
+                        choice(
+                            name: 'approvalChoice',
+                            choices: ['Approve', 'Reject'],
+                            description: 'Please select your approval decision.'
+                        ),
+                    ],
+                    timeout: 60 // Set timeout for approval in seconds
+                )
            } 
         }
-        stage('Deliver') {
+        stage('Deploy') {
             agent any
             environment {
                 VOLUME = '$(pwd)/sources:/src'
