@@ -35,7 +35,6 @@ pipeline {
              input(
                     id: 'deploymentApproval',
                     message: 'Please provide your approval:',
-                    submitter: 'Approver',
                     parameters: [
                         choice(
                             name: 'approvalChoice',
@@ -43,7 +42,6 @@ pipeline {
                             description: 'Please select your approval decision.'
                         ),
                     ],
-                    timeout: 60 // Set timeout for approval in seconds
                 )
            } 
         }
