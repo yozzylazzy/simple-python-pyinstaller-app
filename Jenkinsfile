@@ -43,12 +43,12 @@ pipeline {
                         ),
                     ],
                 )
-                if (input.equals('Reject')) {
-                    error('Deployment Rejected')
-                } else {
-                    echo("Commit Approved")
-                }
-           } 
+            } 
+            if (input.equals('Reject')) {
+                error('Deployment Rejected')
+            } else {
+                echo("Commit Approved")
+            }
         }
         stage('Deploy') {
             agent any
