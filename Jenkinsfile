@@ -43,7 +43,7 @@ pipeline {
                         ),
                     ],
                 )
-                if(input.equals('Reject')) {
+                if (input.equals('Reject')) {
                     error('Deployment Rejected')
                 }
            } 
