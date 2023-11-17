@@ -43,12 +43,12 @@ pipeline {
                         ),
                     ],
                 )
-        if (parameters.deploymentApproval == 'Reject') {
-                error('Deployment Rejected')
+            if (params.approvalChoice == 'Reject') {
+                        error('Deployment Rejected')
             } else {
-                echo("Commit Approved")
+                        echo("Commit Approved")
             }
-            } 
+        } 
         }
         stage('Deploy') {
             agent any
