@@ -39,11 +39,12 @@ pipeline {
                         parameters: [
                             choice(
                                 name: 'approvalChoice',
-                                description: 'Please click OK to approve or Abort to reject.'
+                                choices: ['All Goods'],
+                                description: 'Please select your approval decision.'
                             ),
                         ],
                     )
-                    if (approvalChoice != 'OK') {
+                    if (approvalChoice != 'All Goods') {
                         error('Deployment Rejected')
                     } else {
                         echo("Commit Approved")
