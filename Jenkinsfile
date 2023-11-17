@@ -31,24 +31,27 @@ pipeline {
             }
         }
         stage('Manual Approval Deploy'){
-           steps{
-             input(
-                    id: 'deploymentApproval',
-                    message: 'Please provide your approval:',
-                    parameters: [
-                        choice(
-                            name: 'approvalChoice',
-                            choices: ['Approve', 'Reject'],
-                            description: 'Please select your approval decision.'
-                        ),
-                    ],
-                )
-            if (params.approvalChoice == 'Reject') {
+          steps {
+                script {
+                    def approvalChoice = input(
+                        id: 'deploymentApproval',
+                        message: 'Please provide your approval:',
+                        parameters: [
+                            choice(
+                                name: 'approvalChoice',
+                                choices: ['Approve', 'Reject'],
+                                description: 'Please select your approval decision.'
+                            ),
+                        ],
+                    )
+                    if (approvalChoice == 'Reject') {
                         error('Deployment Rejected')
-            } else {
+                    } else {
                         echo("Commit Approved")
+                    }
+                    env.approvalChoice = approvalChoice
+                }
             }
-        } 
         }
         stage('Deploy') {
             agent any
