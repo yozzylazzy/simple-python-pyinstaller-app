@@ -39,7 +39,7 @@ pipeline {
                         parameters: [
                             choice(
                                 name: 'approvalChoice',
-                                choices: ['Approve', 'Abort'],
+                                choices: ['Proceed', 'Abort'],
                                 description: 'Lanjutkan ke Tahap Deploy?'
                             ),
                         ],
