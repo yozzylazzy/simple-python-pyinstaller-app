@@ -39,8 +39,7 @@ pipeline {
                         parameters: [
                             choice(
                                 name: 'approvalChoice',
-                                choices: ['All Goods'],
-                                description: 'Please select your approval decision.'
+                                description: 'Lanjutkan ke Tahap Deploy?'
                             ),
                         ],
                     )
