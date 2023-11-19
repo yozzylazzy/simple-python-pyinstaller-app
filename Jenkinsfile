@@ -30,12 +30,12 @@ pipeline {
                 }
             }
         }
-        stage('Manual Approval Deploy'){
+        stage('Manual Approval'){
           steps {
                 script {
                     def approvalChoice = input(
                         id: 'deploymentApproval',
-                        message: 'Lanjutkan ke Tahap Deploy?',
+                        message: 'Lanjutkan ke tahap Deploy?',
                     )
                     if (approvalChoice == 'Abort') {
                         error('Deployment Rejected')
