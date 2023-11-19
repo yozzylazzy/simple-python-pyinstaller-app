@@ -30,6 +30,11 @@ pipeline {
                 }
             }
         }
+        stage('Delay Execution'){
+            steps {
+                sleep time:  60, unit: 'SECONDS'
+            }
+        }
         stage('Manual Approval Deploy'){
           steps {
                 script {
