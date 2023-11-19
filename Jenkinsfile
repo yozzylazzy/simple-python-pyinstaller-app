@@ -41,13 +41,6 @@ pipeline {
                     def approvalChoice = input(
                         id: 'deploymentApproval',
                         message: 'Lanjutkan ke Tahap Deploy?',
-                        // parameters: [
-                        //     choice(
-                        //         name: 'approvalChoice',
-                        //         choices: '',
-                        //         description: 'Lanjutkan ke Tahap Deploy?',
-                        //     ),
-                        // ],
                     )
                     if (approvalChoice == 'Abort') {
                         error('Deployment Rejected')
