@@ -30,11 +30,6 @@ pipeline {
                 }
             }
         }
-        stage('Delay Execution'){
-            steps {
-                sleep time:  60, unit: 'SECONDS'
-            }
-        }
         stage('Manual Approval Deploy'){
           steps {
                 script {
@@ -68,6 +63,11 @@ pipeline {
                     archiveArtifacts "${env.BUILD_ID}/sources/dist/add2vals" 
                     sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
+            }
+        }
+        stage('Delay Pipeline Execution'){
+            steps {
+                sleep time:  60, unit: 'SECONDS'
             }
         }
     }
